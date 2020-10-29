@@ -33,9 +33,11 @@ app.post('/', function (req, res){
 
    }
 
+
+
    const jsonData = JSON.stringify(data);
 
-   const url = 'https://us2.admin.mailchimp.com/lists/15a56fcaf8';
+   const url = 'https://us2.admin.mailchimp.com/3.0/lists/15a56fcaf8';
 
    const options = {
     method:'POST',
@@ -44,6 +46,13 @@ app.post('/', function (req, res){
 
   const request = https.request(url, options, function (response){
         response.on('data', function (data){
+
+          /*   if (typeof data !== 'undefined') {
+                 console.log(JSON.parse(data));
+            }else{
+                console.log('error');
+            } */
+
             console.log(JSON.parse(data));
         });
    });
